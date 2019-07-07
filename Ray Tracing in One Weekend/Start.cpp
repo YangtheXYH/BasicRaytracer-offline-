@@ -21,7 +21,7 @@ float drand48() { return (rand()%(100)/(float)(100)); }
 vec3 color(const ray& r, hitable* world,int depth)
 {
 	hit_record rec;
-	if (world->hit(r, 0.001, FLT_MAX, rec))   //ÕâÀïÓÃ"0.001"¶ø²»ÊÇ"0.00"ÊÇÎªÁË±ÜÃâshadow acne ÎÊÌâ
+	if (world->hit(r, 0.001, FLT_MAX, rec))   //è¿™é‡Œç”¨"0.001"è€Œä¸æ˜¯"0.00"æ˜¯ä¸ºäº†é¿å…shadow acne é—®é¢˜
 	{
 		ray scattered;
 		vec3 attenuation;
@@ -97,7 +97,7 @@ int main()
 	const int nx = 500;
 	const int ny = 300;
 	const int ns = 10;
-	std::cout << "P3\n" << nx << "" << ny << "\n255\n";
+	std::cout << "P3\n" << nx << " " << ny << "\n255\n";
 	RGB data[ny][nx];
 	hitable* list[5];
 	list[0] = new sphere(vec3(0, 0, -1), 0.5, new lambertial(vec3(0.1, 0.2, 0.5)));
